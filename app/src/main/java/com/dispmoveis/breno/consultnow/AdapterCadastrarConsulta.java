@@ -1,65 +1,56 @@
 package com.dispmoveis.breno.consultnow;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.lang.ref.WeakReference;
 import java.util.List;
 
-public class AdapterCadastrarConsulta extends RecyclerView.Adapter<AdapterCadastrarConsulta.ItensViewHolder>
+public class AdapterCadastrarConsulta extends RecyclerView.Adapter<AdapterCadastrarConsulta.TheViewHolder>
 {
-    private List<CadastroConsulta> listaConsulta;
-    WeakReference<Context> mContextWeakReference;
+    private List<CadastroConsulta> presenceList;
 
-    @Override
-    public ItensViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    public static class TheViewHolder extends RecyclerView.ViewHolder
     {
-        Context contexto = mContextWeakReference.get();
+        public TextView tipoConsulta, dispMedica, dataHora;
 
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_tela_principal, parent, false);
+        public TheViewHolder(View view)
+        {
+            super(view);
+            tipoConsulta = view.findViewById(R.id.textoTipo);
+            dispMedica = view.findViewById(R.id.textoDispoMedica);
+            dataHora = view.findViewById(R.id.textoDataHora);
+        }
 
-        return new ItensViewHolder(itemView, contexto);
+       /* public AdapterCadastrarConsulta(List<CadastroConsulta> presenceList)
+        {
+           this.presenceList = presenceList;
+        }*/
     }
 
     @Override
-    public void onBindViewHolder(ItensViewHolder holder, int position)
+    public TheViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
-        Context context = mContextWeakReference.get();
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_layout_principal_filho, parent, false);
 
-        if(context == null)
-        {
-            return;
-        }
+        return new TheViewHolder(itemView);
+    }
 
-        CadastroConsulta cadastro = listaConsulta.get(position);
-        holder.nomeConsulta.setText(cadastro.getNome());
+    @Override
+    public void onBindViewHolder(TheViewHolder holder, int position)
+    {
+        CadastroConsulta cc = presenceList.get(position);
+
+        holder.tipoConsulta.setText(cc.tipoConsulta);
+        holder.dispMedica.setText(cc.medico);
+        holder.dataHora.setText(cc.horario);
     }
 
     @Override
     public int getItemCount()
     {
-        return listaConsulta.size();
-    }
-
-    public class ItensViewHolder extends RecyclerView.ViewHolder
-    {
-        public TextView nomeConsulta;
-
-        public ItensViewHolder(View view, Context contexto)
-        {
-            super(view);
-
-            nomeConsulta = (TextView) view.findViewById(R.id.recyclerView);
-        }
-    }
-
-    public AdapterCadastrarConsulta(List<CadastroConsulta> listaConsulta, Context contexto)
-    {
-        this.listaConsulta = listaConsulta;
-        this.mContextWeakReference = new WeakReference<Context>(contexto);
+        return presenceList.size();
     }
 }
