@@ -8,8 +8,6 @@ public class Consulta
     private String dispMedica;
     private String dataHora;
 
-    public Consulta()
-    {}
 
     public Consulta(String nome, String medico, String tipoConsulta, String dispMedica, String dataHora) {
         this.nome = nome;
@@ -19,14 +17,6 @@ public class Consulta
         this.dataHora = dataHora;
     }
 
-    public Consulta(String dados[])
-    {
-        this.nome = dados[0];
-        this.medico = dados[1];
-        this.tipoConsulta = dados[2];
-        this.dispMedica = dados[3];
-        this.dataHora = dados[4];
-    }
 
     public String getNome() {
         return nome;
