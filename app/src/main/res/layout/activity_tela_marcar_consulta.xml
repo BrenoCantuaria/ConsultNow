@@ -1,65 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activityMarcarConsulta"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:screenOrientation="portrait">
 
     <TextView
+        android:id="@+id/textoTipo"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Selecione o tipo da consulta:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/plainTextTipo"
+        android:layout_width="215dp"
+        android:layout_height="27dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoTipo" />
+
+    <TextView
         android:id="@+id/textoDispoMedica"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="Disponibilidade médica"
+        android:layout_marginTop="8dp"
+        android:text="Nome médico:"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerDispoMedica"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextTipo" />
+
+    <EditText
+        android:id="@+id/plainTextDispoMedica"
+        android:layout_width="218dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textoDispoMedica"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoDispoMedica" />
 
     <TextView
-        android:id="@+id/textoDataHora"
+        android:id="@+id/textoData"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="Data e horário"
+        android:layout_marginTop="8dp"
+        android:text="Data:"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerDataHora"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextDispoMedica" />
+
+    <EditText
+        android:id="@+id/plainTextData"
+        android:layout_width="218dp"
+        android:layout_height="26dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoData" />
 
     <TextView
-        android:id="@+id/textoTipo"
+        android:id="@+id/textoStatus"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="Selecione o tipo da consulta"
+        android:layout_marginTop="16dp"
+        android:text="Status:"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerTipo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plainTextData" />
+
+    <EditText
+        android:id="@+id/plainTextStatus"
+        android:layout_width="218dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoStatus" />
 
     <Button
         android:id="@+id/botaoEfetuar"
         android:layout_width="218dp"
         android:layout_height="39dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -71,51 +141,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinnerTipo"
-        android:layout_width="259dp"
-        android:layout_height="29dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
-        android:spinnerMode="dialog"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinnerDispoMedica"
-        android:layout_width="259dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
-        android:spinnerMode="dialog"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerTipo" />
-
-    <Spinner
-        android:id="@+id/spinnerDataHora"
-        android:layout_width="258dp"
-        android:layout_height="29dp"
-        android:layout_marginBottom="184dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:spinnerMode="dialog"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/botaoEfetuar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

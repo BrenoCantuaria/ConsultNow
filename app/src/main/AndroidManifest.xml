@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:screenOrientation = "portrait">
-        <activity android:name=".TelaLogin">
+        <activity android:name=".telas.TelaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TelaCadastro" />
-        <activity android:name=".TelaPrincipal" />
-        <activity android:name=".TelaMarcarConsulta" />
+        <activity android:name=".telas.TelaCadastro" />
+        <activity android:name=".telas.TelaPrincipal" />
+        <activity android:name=".telas.TelaMarcarConsulta" />
     </application>
 
 </manifest>

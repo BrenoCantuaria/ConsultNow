@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:screenOrientation="portrait"
-    tools:context="com.dispmoveis.breno.consultnow.TelaLogin">
+    tools:context="com.dispmoveis.breno.consultnow.telas.TelaLogin">
 
     <EditText
         android:id="@+id/textoUsuario"

@@ -1,7 +1,8 @@
-package com.dispmoveis.breno.consultnow;
+package com.dispmoveis.breno.consultnow.telas;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.dispmoveis.breno.consultnow.R;
 
 public class TelaLogin extends AppCompatActivity implements View.OnClickListener
 {
@@ -22,6 +25,7 @@ public class TelaLogin extends AppCompatActivity implements View.OnClickListener
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_login);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Shared Preferences usado para o controle de usuário e senha
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
