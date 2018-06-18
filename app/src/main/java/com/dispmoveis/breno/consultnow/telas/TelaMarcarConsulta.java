@@ -2,11 +2,7 @@ package com.dispmoveis.breno.consultnow.telas;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -14,23 +10,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.dispmoveis.breno.consultnow.R;
-import com.dispmoveis.breno.consultnow.database.Conector;
 import com.dispmoveis.breno.consultnow.model.Consulta;
-import com.dispmoveis.breno.consultnow.repositorio.ConsultaRepositorio;
 
 public class TelaMarcarConsulta extends AppCompatActivity
 {
     TextView preencherNome, preencherTipo, preencherData, preencherStatus;
 
     private Consulta consulta;
-
-    private ConstraintLayout activityMarcarConsulta;
-
-    private ConsultaRepositorio consultaRepositorio;
-
-    //Objetos utilizados para conexão
-    private SQLiteDatabase conexao;
-    private Conector conector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,44 +25,8 @@ public class TelaMarcarConsulta extends AppCompatActivity
         setContentView(R.layout.activity_tela_marcar_consulta);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        activityMarcarConsulta = (ConstraintLayout)findViewById(R.id.activityPrincipal);
-
-        criarConexao();
-
-        inicializaVariaveis();
+        inicializaComponentes();
     }
-
-    private void criarConexao()
-    {
-        try
-        {
-            conector = new Conector(this);
-            conexao = conector.getWritableDatabase();
-
-            Snackbar.make(activityMarcarConsulta, "Conexão criada coom sucesso!", Snackbar.LENGTH_SHORT)
-                    .setAction("OK", null).show();
-
-            consultaRepositorio = new ConsultaRepositorio(conexao);
-        }
-        catch (SQLException ex)
-        {
-            AlertDialog.Builder dlg = new AlertDialog.Builder(this);
-            dlg.setTitle("Erro");
-            dlg.setMessage(ex.getMessage());
-            dlg.setNeutralButton("OK", null);
-            dlg.show();
-        }
-    }
-
-
-    public void confirrmar()
-    {
-        if (validaCampos() == false)
-        {
-            consultaRepositorio.inserir(consulta);
-        }
-    }
-
 
     public boolean isCampoVazio(String valor)
     {
@@ -86,9 +36,7 @@ public class TelaMarcarConsulta extends AppCompatActivity
 
     public boolean validaCampos()
     {
-
         consulta = new Consulta();
-
         boolean resposta =  false;
 
         String nome     = preencherNome.getText().toString();
@@ -96,9 +44,10 @@ public class TelaMarcarConsulta extends AppCompatActivity
         String status   = preencherStatus.getText().toString();
         String data     = preencherData.getText().toString();
 
-
-       //consulta.setNomeMedico(); = nome;
-
+        consulta.setNomeMedico(nome);
+        consulta.setTipoConsulta(tipo);
+        consulta.setStatus(status);
+        consulta.setData(data);
 
         //Verifica se os campos digitados estão vazios
         if(resposta =  isCampoVazio(nome))
@@ -126,18 +75,16 @@ public class TelaMarcarConsulta extends AppCompatActivity
             dlg.setNeutralButton("OK", null);
             dlg.show();
         }
-
         return resposta;
     }
 
-
-    //Método que faz a inicialização das variáveis que serão apresentadas na recycleview
-    public void inicializaVariaveis()
+    //Método que faz a inicialização dos componentes que serão apresentadas na recycleview
+    public void inicializaComponentes()
     {
-        preencherNome      = findViewById(R.id.plainTextDispoMedica);
-        preencherTipo      = findViewById(R.id.plainTextTipo);
-        preencherStatus    = findViewById(R.id.plainTextStatus);
-        preencherData      = findViewById(R.id.plainTextData);
+        preencherNome      = findViewById(R.id.plainTextDispMedic);
+        preencherTipo      = findViewById(R.id.plainTextType);
+        preencherStatus    = findViewById(R.id.plainTextStatusConsulta);
+        preencherData      = findViewById(R.id.plainTextDate);
     }
 
     //Método utilizado para fazer a transição de activities ao pressionar o lugar setado

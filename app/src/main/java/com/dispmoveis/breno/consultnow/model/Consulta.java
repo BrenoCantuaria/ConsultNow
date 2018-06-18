@@ -11,7 +11,7 @@ public class Consulta
 
     public Consulta(Integer id, String nomeMedico, String tipoConsulta, String status, String data)
     {
-        this.id = id;
+        this.setId(id);
         this.setNomeMedico(nomeMedico);
         this.setTipoConsulta(tipoConsulta);
         this.setStatus(status);

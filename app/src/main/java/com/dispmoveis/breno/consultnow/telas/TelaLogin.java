@@ -3,9 +3,9 @@ package com.dispmoveis.breno.consultnow.telas;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +27,9 @@ public class TelaLogin extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_tela_login);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //Shared Preferences usado para o controle de usuário e senha
+        inicializaComponentes();
+
+       //Shared Preferences usado para o controle de usuário e senha
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         String spLogin = (sharedPreferences.getString("Login", "Default_Value"));
         String spSenha = (sharedPreferences.getString("Senha", "Default_Value"));
@@ -81,11 +83,16 @@ public class TelaLogin extends AppCompatActivity implements View.OnClickListener
         }
     }
 
+    public void inicializaComponentes()
+    {
+        autenticaLogin = (EditText) findViewById(R.id.textoUsuario);
+        autenticaSenha = (EditText) findViewById(R.id.textoSenha);
+    }
+
     //Método utilizado para fazer a transição de activities ao pressionar o lugar setado
     public void cadastrarNovoUsuario(View view)
     {
         Intent intent = new Intent(TelaLogin.this, TelaCadastro.class);
         startActivity(intent);
     }
-
 }

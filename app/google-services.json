@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "288465696225",
+    "firebase_url": "https://consultnow-28bce.firebaseio.com",
+    "project_id": "consultnow-28bce",
+    "storage_bucket": "consultnow-28bce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288465696225:android:82ff05a1e29107d0",
+        "android_client_info": {
+          "package_name": "com.dispmoveis.breno.consultnow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288465696225-djva8kkdgnjd3ksvtt3t6uhrmpraffh1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dispmoveis.breno.consultnow",
+            "certificate_hash": "d6679d75eafbbb4d7a35fe4f839d83f9b242e149"
+          }
+        },
+        {
+          "client_id": "288465696225-en1vph483mqi152b73ut23akng07c9b1.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "288465696225-en1vph483mqi152b73ut23akng07c9b1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5bs1hrrjSSaYqL73YOw88GQvxMNTP9LM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288465696225-en1vph483mqi152b73ut23akng07c9b1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

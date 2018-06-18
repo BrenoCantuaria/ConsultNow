@@ -11,7 +11,7 @@
         android:id="@+id/textoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -20,15 +20,15 @@
         android:hint="Usuário"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/textoSenha"
-        app:layout_constraintEnd_toEndOf="@+id/textoTitulo"
-        app:layout_constraintHorizontal_bias="0.689"
-        app:layout_constraintStart_toStartOf="@+id/imagemLogo" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/textoSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -37,41 +37,46 @@
         android:hint="Senha"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/botaoAutentica"
-        app:layout_constraintEnd_toEndOf="@+id/textoTitulo"
-        app:layout_constraintHorizontal_bias="0.689"
-        app:layout_constraintStart_toStartOf="@+id/imagemLogo" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/botaoAutentica"
-        android:layout_width="151dp"
-        android:layout_height="31dp"
-        android:layout_marginBottom="44dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@color/colorPrimary"
-        android:onClick="validaLogin"
-        android:text="Confirmar"
-        app:layout_constraintBottom_toTopOf="@+id/textoCadastro"
-        app:layout_constraintEnd_toEndOf="@+id/textoSenha"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="@+id/textoSenha" />
-
-    <TextView
-        android:id="@+id/textoCadastro"
-        android:layout_width="184dp"
-        android:layout_height="23dp"
-        android:layout_marginBottom="104dp"
+        android:layout_width="146dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="184dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="validaLogin"
+        android:text="Confirmar"
+        android:textColor="#ffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textoCadastro"
+        android:layout_width="184dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:gravity="center_vertical|center_horizontal"
         android:text="Não possui Cadastro?"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textoSenha"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/textoSenha" />
+        app:layout_constraintEnd_toStartOf="@+id/botaoCadastrar"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botaoAutentica"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textoTitulo"
@@ -88,21 +93,19 @@
 
     <Button
         android:id="@+id/botaoCadastrar"
-        android:layout_width="76dp"
-        android:layout_height="25dp"
-        android:layout_marginBottom="60dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@android:color/transparent"
-        android:gravity="center_vertical"
+        android:layout_width="103dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="72dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical|center"
         android:onClick="cadastrarNovoUsuario"
-        android:text="Cadastrar"
+        android:text="Cadastre-se"
+        android:textColor="#ffff"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textoCadastro"
-        app:layout_constraintStart_toStartOf="@+id/textoCadastro" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imagemLogo"

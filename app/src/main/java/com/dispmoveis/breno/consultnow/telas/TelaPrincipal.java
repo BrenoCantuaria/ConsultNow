@@ -2,18 +2,12 @@ package com.dispmoveis.breno.consultnow.telas;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.dispmoveis.breno.consultnow.database.Conector;
 import com.dispmoveis.breno.consultnow.model.Adaptador;
 import com.dispmoveis.breno.consultnow.R;
 import com.dispmoveis.breno.consultnow.model.Consulta;
@@ -23,15 +17,9 @@ import java.util.ArrayList;
 public class TelaPrincipal extends AppCompatActivity
 {
     ArrayList<Consulta>         dataset;
-    RecyclerView                Lista = null;
+    RecyclerView                Lista;
     RecyclerView.Adapter        adapter;
     RecyclerView.LayoutManager  layoutManager;
-
-    private ConstraintLayout activityPrincipal;
-
-    //Objetos utilizados para conexão
-    private SQLiteDatabase conexao;
-    private Conector conector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,32 +38,8 @@ public class TelaPrincipal extends AppCompatActivity
         Lista.setLayoutManager(layoutManager);
         Lista.setAdapter(adapter);
 
-        activityPrincipal = (ConstraintLayout)findViewById(R.id.activityPrincipal);
-
-        //Métodos extras
         updateData();
         preencheLista();
-        criarConexao();
-    }
-
-    private void criarConexao()
-    {
-        try
-        {
-            conector = new Conector(this);
-            conexao = conector.getWritableDatabase();
-
-            Snackbar.make(activityPrincipal, "Conexão criada coom sucesso!", Snackbar.LENGTH_SHORT)
-                    .setAction("OK", null).show();
-        }
-        catch (SQLException ex)
-        {
-            AlertDialog.Builder dlg = new AlertDialog.Builder(this);
-            dlg.setTitle("Erro");
-            dlg.setMessage(ex.getMessage());
-            dlg.setNeutralButton("OK", null);
-            dlg.show();
-        }
     }
 
     //Método utilizado para fazer a transição de activities ao pressionar o lugar setado
